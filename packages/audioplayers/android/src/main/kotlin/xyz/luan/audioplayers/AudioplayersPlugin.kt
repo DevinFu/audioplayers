@@ -31,7 +31,6 @@ class AudioplayersPlugin : MethodCallHandler, FlutterPlugin {
         try {
             handleMethodCall(call, response)
         } catch (e: Exception) {
-            Logger.error("Unexpected error!", e)
             response.error("Unexpected error!", e.message, e)
         }
     }
@@ -39,9 +38,6 @@ class AudioplayersPlugin : MethodCallHandler, FlutterPlugin {
     private fun handleMethodCall(call: MethodCall, response: MethodChannel.Result) {
         when (call.method) {
             "changeLogLevel" -> {
-                val value = call.enumArgument<LogLevel>("value")
-                    ?: throw error("value is required")
-                Logger.logLevel = value
                 response.success(1)
                 return
             }
