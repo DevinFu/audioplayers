@@ -1,3 +1,4 @@
+package xyz.luan.audioplayers
 import android.util.Log
 
 enum class LogLevel(val value: Int) {
